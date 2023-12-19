@@ -8,6 +8,7 @@ using UnityEngine.Animations.Rigging;
 public class PlayerMovement : MonoBehaviour
 {
     public RigBuilder rig;
+    bool built = false;
     public TwoBoneIKConstraint leftHand;
     public TwoBoneIKConstraint rightHand;
     public float movementSpeed;
@@ -20,6 +21,8 @@ public class PlayerMovement : MonoBehaviour
         rig.Build();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        built = false;
+        StartCoroutine(BuildRig());
     }
 
     // Update is called once per frame
@@ -36,7 +39,16 @@ public class PlayerMovement : MonoBehaviour
         if (movement != Vector3.zero){
             transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation (movement.normalized), rotationSpeed);
         }
-    }   
+    }  
+    IEnumerator BuildRig(){
+        yield return new WaitForSeconds(1);
+        rig.Build();
+    }
+    public void buildRig(){
+        if(built)return;
+        rig.Build();
+        built = true;
+    }
 
 }
 
