@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.Experimental.Animations;
 using UnityEngine.Animations;
 using UnityEngine.Animations.Rigging;
-
+using TMPro;
+using UnityEngine.UI;
 public class PlayerMovement : MonoBehaviour
 {
     public RigBuilder rig;
@@ -14,7 +15,19 @@ public class PlayerMovement : MonoBehaviour
     public float movementSpeed;
     public float rotationSpeed;
     public Camera cam;
+    public GameObject body;
     public Animator anim;
+    
+    
+
+    public float InteractionRadius;
+    [Header("Quests")]
+    public float PresentsCollected;
+    public LayerMask PresentLayer;
+
+    [Header("UI")]
+    public GameObject InteractObject;
+    public TMP_Text InteractText;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +51,24 @@ public class PlayerMovement : MonoBehaviour
 
         if (movement != Vector3.zero){
             transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation (movement.normalized), rotationSpeed);
+        }
+        if(Input.GetKey(KeyCode.LeftShift)){
+            movementSpeed = 5;
+        }else{
+            movementSpeed = 3;
+        }
+        InteractObject.SetActive(false);
+        Collider[] hitColliders = Physics.OverlapSphere(body.transform.position, InteractionRadius, PresentLayer);
+        foreach (var hitCollider in hitColliders)
+        {
+            if(hitCollider.gameObject.tag == "Present"){
+                InteractObject.SetActive(true);
+                InteractText.text = "Press E to pick up";
+                if(Input.GetKeyDown(KeyCode.E)){
+                    Destroy(hitCollider.gameObject);
+                    PresentsCollected += 1;
+                }
+            }
         }
     }  
     IEnumerator BuildRig(){
