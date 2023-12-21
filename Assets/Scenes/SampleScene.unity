@@ -1394,7 +1394,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 924761549}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0682505, y: 0.9315073, z: -0.24137774, w: 0.26338732}
+  m_LocalRotation: {x: 0.068250515, y: 0.9315073, z: -0.24137771, w: 0.26338738}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1488,7 +1488,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.06062829, y: 0.9380793, z: -0.21442066, w: 0.26524568}
+  m_LocalRotation: {x: 0.060628276, y: 0.9380793, z: -0.21442065, w: 0.26524562}
   m_LocalPosition: {x: -2.3563924, y: 4.8910046, z: 1.9436141}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2326,7 +2326,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1508931504}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.060628276, y: 0.9380793, z: -0.21442063, w: 0.26524562}
+  m_LocalRotation: {x: 0.060628265, y: 0.9380793, z: -0.21442063, w: 0.2652456}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3774,7 +3774,7 @@ MonoBehaviour:
   cam: {fileID: 963194227}
   body: {fileID: 523894015}
   anim: {fileID: 3446455038623528454}
-  InteractionRadius: 5
+  InteractionRadius: 2
   PresentsCollected: 0
   PresentLayer:
     serializedVersion: 2
